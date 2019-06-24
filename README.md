@@ -42,7 +42,7 @@ pyhton manage.py runserver
 ```
 
 Ir al navegador a la ruta:
-[Ver aplicación](localhost:8000/registroForm)
+<localhost:8000/registroForm>
 
 Los archivos importantes son:
 
