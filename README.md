@@ -17,8 +17,10 @@ pip install mysqlclient
 
 Configurar la base de datos en el archivo, obviamente deben tener instalado MySQL y corriendo en algún puerto.
 
+Se debe de crear una base de datos llamada **asesoratebd**.
+
 ```
-settings.py
+AsesorateSAS/settings.py
 ```
 
 Ubicarse en el directorio del repositorio y desde la consola realizar los siguientes pasos:
