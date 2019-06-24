@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro</title>
+</head>
+<body>
+    <form autocomplete="on">
+        {% csrf_token %}
+        <input type="text" name="nombre" placeholder="nombre">
+        <input type="text" name="cedula" placeholder="cedula">
+        <input type="email" name="email" placeholder="email">
+        <input type="password" name="contrasena" placeholder="contrasena">
+        <input type="text" name="telefono" placeholder="telefono">
+        <input type="text" name="direccion" placeholder="direccion">
+        <input type="text" name="nickname" placeholder="nickname">
+        <select name="rol" aria-placeholder="Seleccione un rol">
+            <option value="EST">Estudiante</option>
+            <option value="TT">Tutor</option>
+        </select>
+        <button id="btnRegistro">Registrarme</button>
+    </form>
+    <br>
+    {{usuario.nombre}} {{usuario.cedula}}
+</body>
+
+<script>
+
+  $("form").submit(function(event) {
+    event.preventDefault();
+    var csrftoken = jQuery("[name=csrfmiddlewaretoken]").val();
+    var nombre = jQuery("[name=nombre]").val();
+    var cedula = jQuery("[name=cedula]").val();
+    var email = jQuery("[name=email]").val();
+    var contrasena = jQuery("[name=contrasena]").val();
+    var telefono= jQuery("[name=telefono]").val();
+    var direccion = jQuery("[name=direccion]").val();
+    var nickname = jQuery("[name=nickname]").val();
+    var rol = jQuery("[name=rol]").val()
+
+    $.ajax({
+        url: '../registro/',
+        type: 'POST',
+        data: {
+            csrfmiddlewaretoken: csrftoken,
+            nombre: nombre,
+            cedula: cedula,
+            email: email,
+            contrasena: contrasena,
+            telefono : telefono,
+            direccion: direccion,
+            nickname: nickname,
+            rol: rol
+        },
+        dataType: "json"
+    });
+}); 
+</script>
+</html>
