@@ -19,6 +19,8 @@ from AsesorateSAS_APP import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('registroForm/', views.registroFrom, name = 'registroFrom' ),
-    path('registro/', views.registro, name = 'registro')
+    path('registroForm/', views.registroForm, name = 'registroFrom' ),
+    path('registro/', views.registro, name = 'registro'),
+    path('cotizarForm/', views.cotizarForm, name = 'cotizarForm'),
+    path('cotizar/', views.cotizar, name = 'cotizar'),
 ]

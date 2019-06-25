@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Usuario
+from .models import *
 #from .serializables import UsuarioSerializer
 from django.http import HttpResponse
 import json
@@ -20,5 +20,20 @@ def registro(req):
     usuario.save()
     return render(req, 'registro.html', {'usuario': usuario})
 
-def registroFrom(req):
+def registroForm(req):
     return render(req, 'registro.html')
+
+#Cotizar
+
+def cotizarForm(req):
+    return render(req, 'cotizar.html')
+
+def cotizar(req):
+    body = req.POST
+    cotizacion = Cotizacion(
+        id_estudiante = body['id_estudiante'],
+        horas = body['horas'],
+        id_categoria = body['id_categoria'],
+    )
+    cotizacion.save()
+    return render(req, 'cotizar.html')
